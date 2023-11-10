@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旅游网</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+<body>
+    <!-- 头部 -->
+    <header>
+        <div id="menu-bar" class="el-icon-s-unfold"></div>
+        <a href="#home" class="logo"><span>Travel</span>_Panda</a>
+        <nav class="navbar">
+            <a href="#home">首页</a>
+            <a href="#packages">套餐路线</a>
+            <a href="#book">私人路线</a>
+            <a href="#contact">联系我们</a>
+        </nav>
+        <!-- 图标 -->
+        <div class="icons">
+            <i class="el-icon-search" id="search-btn"></i>
+            <i class="el-icon-user" id="login-btn"></i>
+        </div>
+        
+        <!-- 搜索框 -->
+        <form action="" class="search-bar-container">
+            <input type="search" id="search-bar" placeholder="search here...">
+            <label for="search-bar" class="el-icon-search"></label>
+        </form>
+        
+    </header>
+        
+    <!-- 登录表单 -->
+    <div class="login-form-container">
+        <i class="el-icon-close" id="form-close"></i>
+        <form action="">
+            <h3>login</h3>
+            <input type="email" class="box" placeholder="enter your email">
+            <input type="password" class="box" placeholder="enter your password">
+            <input type="submit" value="login now" class="btn">
+            <input type="checkbox" id="remember">
+            <label for="remember">remember me</label>
+            <p>forget password? <a href="#">click here</a></p>
+            <p>don't have and account? <a href="#">register now</a></p>
+        </form>
+    </div>
+       
+    
+    <!-- 首页视频banner区 -->
+    <section class="home" id="home">
+
+        <div class="content">
+            <h3>旅游是一种信仰</h3>
+            <p>和我们一起去远方,寻找诗和梦想</p>
+            <a href="#packages" class="btn">查看路线</a>
+            <a href="#book" class="btn">私人订制</a>
+        </div>
+    
+        <div class="controls">
+            <span class="vid-btn active" data-src="images/front-vid/1.mp4"></span>
+            <span class="vid-btn" data-src="images/front-vid/2.mp4"></span>
+            <span class="vid-btn" data-src="images/front-vid/3.mp4"></span>
+        </div>
+    
+        <div class="video-container">
+            <video src="images/front-vid/1.mp4" id="video-slider" loop autoplay muted></video>
+        </div>
+    
+    </section>
+
+    <!-- 套餐部分 -->      
+    <section class="packages" id="packages">
+
+        <h1 class="heading">
+            <span>p</span>
+            <span>a</span>
+            <span>c</span>
+            <span>k</span>
+            <span>a</span>
+            <span>g</span>
+            <span>e</span>
+            <span>s</span>
+        </h1>
+
+        <h1 class="heading">
+            <span>流</span>
+            <span>行</span>
+            <span>套</span>
+            <span>餐</span>
+        </h1>
+
+        <div class="box-container">
+
+            <button id="reset" class="btn" onclick="resetRoute()">重置</button>
+            <label></label>
+            <select class="routeSelector">
+            </select>
+
+            <button id="search" class="btn" onclick="searchRoute()">搜索</button>
+
+            <div class="route-container">
+            </div>
+            
+            
+        </div>
+        
+    </section>    
+
+    <!-- 预订部分 -->
+    <section class="book" id="book">
+
+        <h1 class="heading">
+            <span>b</span>
+            <span>o</span>
+            <span>o</span>
+            <span>k</span>
+            <span class="space"></span>
+            <span>n</span>
+            <span>o</span>
+            <span>w</span>
+        </h1>
+
+        <h1 class="heading">
+            <span>私</span>
+            <span>人</span>
+            <span>订</span>
+            <span>制</span>
+        </h1>
+    
+        <div class="row">
+    
+            <div class="image">
+                <img src="images/book-img.svg" alt="">
+            </div>
+    
+            <form action="PHP/send_personal_email.php" method="post">
+                <div class="inputBox">
+                    <h3>WHERE FROM</h3>
+                    <input type="text" name="depart_from" placeholder="从哪里">
+                </div>
+                <div class="inputBox">
+                    <h3>WHERE TO</h3>
+                    <input type="text" name="depart_to" placeholder="去哪里">
+                </div>
+                <div class="inputBox">
+                    <h3>HOW MANY</h3>
+                    <input type="number" name="num_people" placeholder="多少人出行">
+                </div>
+                <div class="inputBox">
+                    <h3>DEPARTURE</h3>
+                    <input type="date" name="depart_date">
+                </div>
+                <div class="inputBox">
+                    <h3>RETURN</h3>
+                    <input type="date" name="return_date">
+                </div>
+                <div class="inputBox">
+                    <h3>CONTACT</h3>
+                    <input type="text" name="contact_method" placeholder="邮箱/微信号/Whatsapp">
+                </div>
+                <div class="inputBox">
+                    <h3>ADDITION INFORMATION</h3>
+                    <input type="text" name="add_info" placeholder="备注信息（任何您想让我们知道的）">
+                </div>
+                <input type="submit" class="btn" value="立即 订制">
+            </form>
+
+        </div>
+    
+    </section>
+    
+    <!-- 联系我们 -->
+    <section class="contact" id="contact">
+        
+        <h1 class="heading">
+            <span>c</span>
+            <span>o</span>
+            <span>n</span>
+            <span>t</span>
+            <span>a</span>
+            <span>c</span>
+            <span>t</span>
+            <span class="space"></span>
+            <span>u</span>
+            <span>s</span>
+        </h1>
+
+        <h1 class="heading">
+            <span>联</span>
+            <span>系</span>
+            <span>我</span>
+            <span>们</span>
+        </h1>
+
+        <div class="row">
+
+            <div class="image">
+                <img src="images/contact-img.svg" alt="">
+            </div>
+
+            <form action="">
+                <div class="inputBox">
+                    <input type="text" placeholder="您的姓名">
+                    <input type="email" placeholder="您的邮箱">
+                </div>
+                <div class="inputBox">
+                    <input type="number" placeholder="您的电话">
+                    <input type="text" placeholder="反馈主题">
+                </div>
+                <textarea placeholder="您反馈的内容" name="" id="" cols="30" rows="10"></textarea>
+                <input type="submit" class="btn" value="发送给我们">
+            </form>
+
+        </div>
+        
+    </section>
+
+    <!-- 底部 -->
+    <section class="footer">
+
+        <div class="box-container">
+
+            <div class="box">
+                <h3>Make Money with Us 一起赚钱</h3>
+                <a href="#">Guiders 导游</a>
+                <a href="#">Invest Us 投资我们</a>
+                <a href="#">Partner 加入我们</a>
+            </div>
+            <div class="box">
+                <h3>Quick Link 快速链接</h3>
+                <a href="#home">home 首页</a>
+                <a href="#book">book 套餐路线</a>
+                <a href="#packages">packages 私人路线</a>
+                <a href="#contact">contact 联系我们</a>
+            </div>
+            <div class="box">
+                <h3>About Us 关于我们</h3>
+                <a href="#">XHS 小红书</a>
+                <a href="#">WeChat 微信公众号</a>
+                <a href="#">WeChat 微信客服号</a>
+
+            </div>
+
+        </div>
+
+        <h1 class="credit"> <span>Travel</span> _PANDA </h1>
+        <h1 class="bottom">A Chinese travel company in UK focus on bringing transparent information and convenience for you!</h1>
+
+    </section>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="./script.js"></script>
+</body>
+</html>
